@@ -1,0 +1,21 @@
+## java源码
+### AbstractList
+AbstractList实现了List接口，又因为List继承自Collection，Collection继承自Iterable。因此List接口包含很多的方法。
+* AbstractList实现了List接口的最小实现。 
+* 它是`针对随机访问储存数据`的方式的，如果需要使用`顺序访问储存数据方式的List还有一个AbstractSequentialList`它是继承自AbstractList的子类，顺序访问时应该优先使用它。
+* 对于不可修改的list，只需要覆盖get和size就可以
+* 对于修改的list，还需要覆盖set，如果要求list大小可变还需要拓展add和remove方法
+* 跟所有的Collection类一样，通常子类都需要实现无参和带参数的两个构造器
+* AbstractList是一个直接实现了iterator的抽象类。这和其他的抽象Collection类不同。并且实现了迭代器get、set、add和remove方法。
+
+### AbstractSequentialList
+提供了一个基本的List接口实现，为实现序列访问的数据储存结构的提供了所需要的最小化的接口实现。对于支持随机访问数据的List比如数组，应该优先使用AbstractList。
+
+这里类是AbstractList类中与随机访问类相对的另一套系统，采用的是在迭代器的基础上实现的get、set、add和remove方法。
+
+* 为了实现这个列表。仅仅需要拓展这个类，并且提供ListIterator和size方法。 
+* 对于不可修改的List，编程人员只需要实现Iterator的hasNext、next和hasPrevious、previous和index方法 
+* 对于可修改的List还需要额外实现Iterator的的set的方法 
+* 对于大小可变的List，还需要额外的实现Iterator的remove和add方法
+
+AbstractSequentiaList和其他RandomAccess主要的区别是AbstractSequentiaList的主要方法都是通过迭代器实现的。而不是直接实现的（不通过迭代器，比如ArrayList实现的方式是通过数组实现的。）因此对于一些可以提供RandomAccess的方法，直接使用方法可能更快。因为迭代器移动需要一定代价。
