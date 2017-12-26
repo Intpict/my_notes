@@ -51,10 +51,10 @@ LinkedList有3个变量：
 > ```
 4. **clone**  
 理解clone的特性:  
-* 对象类必须支持`Cloneable接口`，否则即使派生类覆盖了Object#clone()方法，也同样会抛出CloneNotSupportedException这个异常。
+* 对象类必须支持`Cloneable接口，才能调用super.clone()`，否则即使派生类覆盖了Object#clone()方法，也同样会抛出CloneNotSupportedException这个异常。
 * x.clone()!=x的意思是x.clone()返回的对象为新建的对象，与原来的对象地址不同。 
 *  x.clone().getClass() == x.getClass()的意思是克隆出的对象与原对象都是同一个类生成的。 
 *  x.clone().equals(x)的意思是新的对象与原来的对象相同（在equals()函数下是相同的,所以通常需要覆盖equals()方法，但是在下面的例子里，这句话的返回是false）
-*  protected native Object clone() throws CloneNotSupportedException;这里clone()方法修饰符是protected，而不是public。这种访问的不可见性使得我们对Object#clone()方法不可见。所以，`要覆盖Object#clone()方法`。  
+*  protected native Object clone() throws CloneNotSupportedException;这里clone()方法修饰符是protected，而不是public。这种访问的不可见性使得我们对Object#clone()方法不可见，同时，我们还需要实现各自类独有的clone操作。所以，`要覆盖Object#clone()方法`。  
 
 **总结：**: clone方法至少保证`第一层的复制是深复制`过程。
