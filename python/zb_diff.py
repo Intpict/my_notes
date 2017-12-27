@@ -1,5 +1,4 @@
 #-*- coding:utf-8 -*-
-# 京东抢手机脚本
 import time
 from splinter.exceptions import ElementDoesNotExist
 from splinter.browser import Browser
@@ -13,8 +12,8 @@ sale_market_str = buy_market_str = ""
 count = 0.678
 total_sale_num = 0
 foot_len = 0.01
-max_diff_num = 8
-max_error = 8
+max_diff_num = 7
+max_error = 7
 
 # 登录页
 def login(z_b):
@@ -43,17 +42,17 @@ def get_account(z_b):
         print("cookie失效，重新登录!")
         login(z_b)
 
-# 进入ltc交易页面
+# 进入****usdt交易页面
 def go_in_ubtcusdt(z_b):
     try:
-        z_b.visit("https://trans.zb.com/ubtcusdt")
+        z_b.visit("https://trans.zb.com/lbtcusdt")
         time.sleep(2)
     except:
         print("页面错误，重新登录")
         login(z_b)
         go_in_ltcusdt(z_b)
 
-# 获取LTC的当前卖出最低价和买入最高价
+# 获取当前卖出最低价和买入最高价
 def get_sail_min(z_b):
     # 全局变量
     global sale_min, buy_max, sale_market_str, buy_market_str, sale_min_2, buy_max_2
@@ -114,6 +113,7 @@ if __name__ == "__main__":
         try:
             # 获取当前买入和卖出最高及最低价
             get_sail_min(z_b)
+            sleep(0.2)
             diff = 0.00 + float(sale_min) - float(buy_max)
             if diff < max_diff_num:
                 continue
