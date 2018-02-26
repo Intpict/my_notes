@@ -11,7 +11,7 @@ buy_price = sale_price = 10000
 sale_market_str = buy_market_str = ""
 count = 10000
 # 控制卖出价格阈值，高于此值会自动卖出
-sale_price_threshold = 8
+sale_price_threshold = 0.63
 
 # 登录页
 def login(z_b):
@@ -43,8 +43,8 @@ def get_account(z_b):
 # 进入***usdt交易页面
 def go_in_usdt(z_b):
     try:
-        z_b.visit("https://trans.zb.com/xrpusdt")
-        time.sleep(2.26)
+        z_b.visit("https://trans.zb.com/btsusdt")
+        time.sleep(2)
     except:
         print("页面错误，重新登录")
         login(z_b)

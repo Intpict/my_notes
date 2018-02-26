@@ -9,9 +9,9 @@ sale_min_2 = buy_max_2 = 10000
 is_first = True
 buy_price = sale_price = 10000
 sale_market_str = buy_market_str = ""
-count = 0.001
+count = 100
 # 控制买入价格阈值，低于此值会自动购买
-buy_price_threshold = 351.00
+buy_price_threshold = 49.5
 
 # 登录页
 def login(z_b):
@@ -43,7 +43,7 @@ def get_account(z_b):
 # 进入***usdt交易页面
 def go_in_usdt(z_b):
     try:
-        z_b.visit("https://trans.zb.com/lbtcusdt")
+        z_b.visit("https://trans.zb.com/qtumusdt")
         time.sleep(2)
     except:
         print("页面错误，重新登录")
@@ -114,6 +114,7 @@ if __name__ == "__main__":
             # 获取当前买入和卖出最高及最低价
             get_current_price(z_b)
             buy_max_num = 0.00 + float(buy_max)
+            print("当前买入价格: ", str(buy_max_num))
 
             # 延时并获取当前购买状态
             time.sleep(4)

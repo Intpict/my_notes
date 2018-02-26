@@ -1,0 +1,1 @@
+[SHA-1和md5差别](http://blog.csdn.net/qq_32714913/article/details/50358204)
