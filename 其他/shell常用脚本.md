@@ -1,0 +1,1 @@
+统计目录下的所有文件行数：find . -name "*.del" | xargs cat | wc -l

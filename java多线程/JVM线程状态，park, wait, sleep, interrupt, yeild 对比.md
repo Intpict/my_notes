@@ -2,7 +2,7 @@ sleep， 进入TIMED_WAITING状态，不出让锁
 
 wait, 进入TIMED_WAITING状态，出让锁，并进入对象的等待队列
 
-park, 进入WAITING状态，对比wait不需要获得锁就可以让线程WAITING，通过unpark唤醒
+park, 进入WAITING状态，对比wait不需要获得锁就可以让线程WAITING，通过unpark唤醒，不可重入
 
 interrupt, 只是给线程发个信号，如果在wait, sleep会收到exception
 
